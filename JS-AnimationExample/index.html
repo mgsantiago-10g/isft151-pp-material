@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Canvas Sprite Animation</title>
+    <script type="text/javascript" src="js/Sprite.js"></script>
+    <script type="text/javascript" src="js/Sonic.js"></script>
+    <script type="text/javascript" src="js/Coin.js"></script>
+</head>
+<body>
+    <canvas id="demo" width="400" height="200" style="border: 1px solid black;"></canvas>
+    <div>
+        <button id="caminarBtn">Caminar</button>
+        <button id="correrBtn">Correr</button>
+        <button id="descansarBtn">Parar</button>
+    </div>
+	<script>
+
+	class Game
+	{
+		constructor( id )
+		{
+			this.isRunning = true;
+			this.context = document.getElementById(id).getContext('2d');
+			
+			//Creación del personaje
+			this.sonic = new Sonic(80, 50, this.context);
+		};
+
+		drawingLoop()
+		{
+			//Limpiar contexto de dibujo
+			this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+
+			//Dibujar cuadro e indicar el próximo cuadro
+
+			this.sonic.render();
+			this.sonic.update();
+
+			if (this.isRunning)
+			{
+				requestAnimationFrame( () => { this.drawingLoop() } );
+			}
+		}
+
+		start()
+		{
+			//Iniciar el proceso de dibujado continuo
+			this.drawingLoop();
+		}
+
+	}
+
+	window.addEventListener('load', () =>
+	{
+		let game = new Game('demo');
+		
+		document.getElementById('caminarBtn').addEventListener( 'click', () => game.sonic.walk() );
+		document.getElementById('correrBtn').addEventListener( 'click',() => game.sonic.run() );
+		document.getElementById('descansarBtn').addEventListener( 'click',() => game.sonic.idle() );
+		
+		game.start(); 
+	});
+
+	</script>
+</body>
+</html>
