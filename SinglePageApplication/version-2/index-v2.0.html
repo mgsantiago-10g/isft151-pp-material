@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Refactoring 2.0</title>
+</head>
+
+<style>
+
+.numberButton
+{
+	background-color: blue;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	border-radius: 6px;
+	width: 20px;
+}
+
+.operatorButton
+{
+	background-color: #00FF04;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	border-radius: 6px;
+	width: 20px;
+}
+
+.clearButton
+{
+	background-color: #FF0000;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	width: 20px;
+	border-radius: 6px;
+}
+
+.calculateButton
+{
+	background-color: #FFB900;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	width: 20px;
+	border-radius: 6px;
+}
+
+.displayResult
+{
+	border-radius: 6px;
+}
+
+</style>
+
+<body>
+	
+</body>
+  
+<script type="text/javascript">
+
+//Create UI Elements from HTMLDocument
+let display = document.createElement('input');
+display.type = 'text';
+display.setAttribute('disabled','');
+display.value = '';
+display.classList.add('displayResult');
+
+let button0 = document.createElement('button');
+button0.innerText = '0';
+button0.classList.add('numberButton');
+
+let button1 = document.createElement('button');
+button1.innerText = '1';
+button1.classList.add('numberButton');
+
+let button2 = document.createElement('button');
+button2.innerText = '2';
+button2.classList.add('numberButton');
+
+let buttonPlus = document.createElement('button');
+buttonPlus.innerText = '+';
+buttonPlus.classList.add('operatorButton');
+
+let buttonCalculate = document.createElement('button');
+buttonCalculate.innerText = '=';
+buttonCalculate.classList.add('calculateButton');
+
+//Create function reaction-event handlers
+
+function onButton0Click()
+{   	
+	display.value += '0';
+}
+
+function onButton1Click()
+{   	
+	display.value += '1';
+}
+
+function onButton2Click()
+{   	
+	display.value += '2';
+}
+
+function onButtonPlusClick()
+{   	
+	display.value += '+';
+}
+
+function onButtonCalculateClick()
+{
+  display.value = eval(display.value);
+}
+
+//Attach event-handler functions to each element
+
+button0.addEventListener('click', onButton0Click );
+button1.addEventListener('click', onButton1Click );
+button2.addEventListener('click', onButton2Click );
+buttonPlus.addEventListener('click', onButtonPlusClick );
+buttonCalculate.addEventListener('click', onButtonCalculateClick );
+ 
+//Append to document body
+document.body.appendChild(display);
+document.body.appendChild(button0);
+document.body.appendChild(button1);
+document.body.appendChild(button2);
+document.body.appendChild(buttonPlus);
+document.body.appendChild(buttonCalculate);
+
+
+</script>
+</html>

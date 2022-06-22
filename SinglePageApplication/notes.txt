@@ -1,0 +1,28 @@
+SPA (SinglePageApplication)
+===========================
+
+All examples are developed in one single file.
+In your cases all files needs to be separated in (styles.css + index.html)
+and one file per class in js.
+
+Version 1.0
+HTML/CSS + JS Functions
+(index.html, styles.css)
+
+Version 2.0
+HTML/CSS + JS Functions migration to DOM API
+(index.html, styles.css)
+
+Version 3.0
+DOM API Code Version with Classes
+(index.html, styles.css, application.js)
+
+Version 4.0
+DOM API Code Version with MVC Design
+(index.html, styles.css, model.js, controller.js, view.js)
+
+Version 5.0
+MVC/DOM API Code Version with Async/Sync connectivity features.
+Client-Server Application Architecture/Service Oriented.
+(index.html, styles.css, model.js, controller.js, view.js)
+

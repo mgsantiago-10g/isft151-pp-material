@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Refactoring 1.0</title>
+</head>
+
+<style>
+
+.numberButton
+{
+	background-color: blue;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	border-radius: 6px;
+	width: 100%;
+}
+
+.operatorButton
+{
+	background-color: #00FF04;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	border-radius: 6px;
+	width: 100%;
+}
+
+.clearButton
+{
+	background-color: #FF0000;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	width: 100%;
+	border-radius: 6px;
+}
+
+.calculateButton
+{
+	background-color: #FFB900;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	width: 100%;
+	border-radius: 6px;
+}
+
+.displayResult
+{
+	border-radius: 6px;
+}
+
+</style>
+
+<body>
+	<table>
+		<tr>
+			<td colspan="4"> 
+				<input class="displayResult" id="display" type="text" value="" disabled></input> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button id="button7" class="numberButton">7</button>
+			</td>
+			<td>
+				<button id="button8" class="numberButton">8</button>
+			</td>
+			<td>
+				<button id="button9" class="numberButton">9</button>
+			</td>
+			<td>
+				<button id="buttonPlus" class="operatorButton">+</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button id="button4" class="numberButton">4</button>
+			</td>
+			<td>
+				<button id="button5" class="numberButton">5</button>
+			</td>
+			<td>
+				<button id="button6" class="numberButton">6</button>
+			</td>
+			<td>
+				<button id="buttonMinus" class="operatorButton">-</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button id="button3" class="numberButton">3</button>
+			</td>
+			<td>
+				<button id="button2" class="numberButton">2</button>
+			</td>
+			<td>
+				<button id="button1" class="numberButton">1</button>
+			</td>
+			<td>
+				<button id="buttonProduct" class="operatorButton">x</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button id="button0" class="numberButton">0</button>
+			</td>
+			<td>
+				<button id="buttonDecimalPoint" class="numberButton">.</button>
+			</td>
+			<td>
+				<button id="buttonCalculate" class="calculateButton">=</button>
+			</td>
+			<td>
+				<button id="buttonDivision"class="operatorButton">/</button>
+			</td>
+		</tr>
+			
+		<tr>
+			<td colspan="4">
+			  	<button id="buttonClear" class="clearButton">BORRAR</button>
+			</td>
+		</tr>
+	 </table>
+</body>
+  
+<script type="text/javascript">
+
+//Get UI Elements from HTMLDocument
+let display = document.getElementById("display");
+
+let button0 = document.getElementById("button0");
+let button1 = document.getElementById("button1");
+let button2 = document.getElementById("button2");
+
+let buttonPlus = document.getElementById("buttonPlus");
+let buttonCalculate = document.getElementById("buttonCalculate");
+
+//Create function reaction-event handlers
+
+function onButton0Click()
+{   	
+	display.value += '0';
+}
+
+function onButton1Click()
+{   	
+	display.value += '1';
+}
+
+function onButton2Click()
+{   	
+	display.value += '2';
+}
+
+function onButtonPlusClick()
+{   	
+	display.value += '+';
+}
+
+function onButtonCalculateClick()
+{
+  display.value = eval(display.value);
+}
+
+//Attach event-handler functions to each element
+
+button0.addEventListener('click', onButton0Click );
+button1.addEventListener('click', onButton1Click );
+button2.addEventListener('click', onButton2Click );
+buttonPlus.addEventListener('click', onButtonPlusClick );
+buttonCalculate.addEventListener('click', onButtonCalculateClick );
+  
+</script>
+</html>
